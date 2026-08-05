@@ -118,20 +118,12 @@
     <h2 id="resultTitle" style="color:var(--white)">You manage × Leverage</h2>
     <p style="font-size:13.5px; margin-top:6px;">Five deliverables I'd ship if I were you — the ones nobody asked you for, anchored to the work AI is actually measured against.</p>
   </div>
-  <ol class="paths">
-    <li><b>The Rate Memo</b> — the raise case your boss can forward upward &nbsp;<b style="color:var(--teal)">FREE — full spec below</b></li>
-    <li class="locked">The Succession Doc — promotable beats indispensable</li>
-    <li class="locked">The Headcount Case — your overwork, translated into leadership math</li>
-    <li class="locked">The Unsolicited One-Pager — the fix nobody assigned you</li>
-    <li class="locked">The Translate-Up Brief — your team's work, in your boss's boss's language</li>
-  </ol>
+  <p id="pathName" class="sub" style="margin-top:-14px;font-weight:800;color:var(--navy);"></p>
+  <ol class="paths" id="pathsList"></ol>
   <div class="freespec">
-    <b style="color:var(--teal); text-transform:uppercase; letter-spacing:.12em; font-size:11px;">Deliverable 01 · Free · You manage</b>
-    <h3 style="margin:6px 0;">The Rate Memo</h3>
-    <p><b>Ship:</b> a one-page memo pricing your role against current market ranges, written so your boss can forward it without editing.<br>
-    <b>Why it works:</b> the ask is the highest-leverage document most people never write.<br>
-    <b>Build:</b> give AI your role, region, tenure, last review, two wins with numbers. Draft ugly, cut to one page, label anything inferred.<br>
-    <b>Ship move:</b> the week after a visible win. Subject: "For your next comp conversation."</p>
+    <b id="freespecKicker" style="color:var(--teal); text-transform:uppercase; letter-spacing:.12em; font-size:11px;"></b>
+    <h3 id="freespecName" style="margin:6px 0;"></h3>
+    <p id="freespecBody"></p>
   </div>
   <div class="gate">
     <h3 style="margin-bottom:4px;">Get the whole magazine — free.</h3>
@@ -157,17 +149,144 @@
 </section>
 
 <footer>
-  FREE: this picker + the magazine + the 5-Day Plan · $5: the Adventure · $50: Session + Blueprint · $500: <a href="https://pennywrenn.media/deploy">Publications &amp; Deployments — apply</a>
-  <br><br>
-  <a href="mailto:pennywrenn@gmail.com" style="color:var(--white);">✉ contact Penny</a>
+  <a href="mailto:pennywrenn@gmail.com" style="color:var(--white);">contact Penny</a>
 </footer>
 
 </div>
 <script>
 var f='',i='';
+
+// All 14 paths, sourced from the CYOA (cyoa-FULL-BOOK-DRAFT-v1.html) — same content, same names.
+var PATHS = {
+  'You manage|Leverage': {name:'The Forwardable Manager', deliverables:[
+    {t:'The Rate Memo', sub:'the raise case your boss can forward upward', ship:'a one-page memo pricing your role against current market ranges, written so your boss forwards it unedited.', why:'the ask is the highest-leverage document most people never write (Babcock). GDPval: managers are tested on forwardable decision docs.', move:'the week after a visible win. Subject: "For your next comp conversation." Then stop talking.'},
+    {t:'The Succession Doc', sub:'promotable beats indispensable'},
+    {t:'The Headcount Case', sub:'your overwork, translated into leadership math'},
+    {t:'The Unsolicited One-Pager', sub:'the fix nobody assigned you'},
+    {t:'The Translate-Up Brief', sub:"your team's work, in your boss's boss's language"}
+  ]},
+  'You manage|Pivot': {name:'The Portable Operator', deliverables:[
+    {t:'The Portable Ops Résumé', sub:'what you actually run, in the target industry\'s language', ship:"one narrative page of what you actually run — throughput, people, budget, chaos tamed — written in the target industry's language, not your current title's.", why:"your title undersells you; operations is the most transferable skill nobody translates. GDPval proves the same manager tasks recur across all nine sectors.", move:'send to three humans in the target industry for a "does this read native?" check before any application sees it.'},
+    {t:'The Systems Portfolio', sub:'before/afters of processes you built'},
+    {t:'The Adjacent-Role Map', sub:'ten roles one step sideways'},
+    {t:'The Reference Kit', sub:'briefed references, ready before you need them'},
+    {t:'The Two-Year Experiment Plan', sub:'the smallest real test of the pivot'}
+  ]},
+  'You sell|Leverage': {name:'The Documented Closer', deliverables:[
+    {t:'The Win-Back List', sub:'your ten most valuable dormant accounts, reopened', ship:'a memo of your ten most valuable dormant accounts with an AI-researched "what changed for them since" line and a re-open move for each.', why:'dormant relationships are the cheapest pipeline that exists — weak ties, literally proven to carry the opportunity (Granovetter/LinkedIn).', move:'run it as your own campaign this quarter; report the results up like it was always the plan.'},
+    {t:'The Objection Playbook', sub:'your best answers, named after you'},
+    {t:'The Deal Post-Mortem', sub:'what closed, what died, and the pattern'},
+    {t:'The Territory Case', sub:'the data memo for the patch or quota you want'},
+    {t:'The Referral Engine', sub:'happy customers into public proof'}
+  ]},
+  'You sell|Pivot': {name:'The Book-of-Business Owner', deliverables:[
+    {t:'The Book Audit', sub:"the honest map of what's actually yours", ship:"the honest map of what's actually yours — every relationship, organized by warmth, industry, and who'd take your call at a new company (or your own).", why:'your book is the asset; most reps never inventory it until the week they need it. Weak ties carry the next chapter.', move:'build it on personal time, personal tools. This document is yours; keep it that way — and keep it clean of employer property.'},
+    {t:'The Vertical Translation Sheet', sub:'your record, in the target industry\'s words'},
+    {t:'The Consulting One-Pager', sub:'sell your system, not your hours'},
+    {t:'The Personal Pipeline', sub:'your search run like a quarter'},
+    {t:'The Comp Rehearsal', sub:'the negotiation script for your next deal'}
+  ]},
+  'You count|Leverage': {name:'The Finding Filer', deliverables:[
+    {t:'The Cost-Save Memo', sub:'the finding you already spotted, priced and filed', ship:'the finding you already spotted — the duplicate spend, the bad contract, the leak — priced, sourced, and filed as a one-page memo nobody asked for.', why:'unsolicited findings are how finance people become leadership people; demonstration beats permission. GDPval: analyst tasks are exactly this — findings, documented.', move:'file it to the person who owns the P&L line, with the fix costed. Copy no one else.'},
+    {t:'The Plain-English Report', sub:'the numbers, translated for the room'},
+    {t:'The Close-Faster Doc', sub:'where the close bleeds days, and the fix'},
+    {t:'The Controls Case', sub:'the risk memo for the gap you worry about'},
+    {t:'The License Rate Memo', sub:'the comp case built on your credentials'}
+  ]},
+  'You count|Pivot': {name:'The Fractional Future', deliverables:[
+    {t:'The Fractional Offer Page', sub:'books cleaned / CFO-lite / audit-prep — priced', ship:'one page: books cleaned monthly / CFO-lite advisory / audit-prep — for whom, at what price, how to book.', why:'fractional finance is the most proven solo pivot there is; the offer page is the entire storefront. Package the knowledge you give your employer free.', move:'publish, then pitch five businesses whose books you already know are messy — their vendors will tell you.'},
+    {t:'The Industry Switch Sheet', sub:'your record, translated to the target vertical'},
+    {t:'The Certification Shortcut Plan', sub:'the credential that raises your rate most'},
+    {t:'The Advisory Ten-Hours', sub:'a structured monthly advisory offer'},
+    {t:'The Treasurer Résumé', sub:'your career, in governance language'}
+  ]},
+  'You care|Leverage': {name:'The Protocol Author', deliverables:[
+    {t:'The Schedule Nobody Fights About', sub:'constraints in, fair rotation out', ship:'constraints in, fair rotation out — plus the memo explaining the logic so it survives the first complaint.', why:'the schedule is where care units bleed morale; whoever fixes it becomes indispensable-in-the-good-way. GDPval: healthcare-ops scheduling is literally a benchmark task.', move:'pilot one cycle, publish the memo with it, take the feedback in writing.'},
+    {t:'The Staffing Case', sub:'patient-load math turned into a priced memo'},
+    {t:'The Protocol Doc', sub:'your method for the hard thing, named'},
+    {t:'The De-Escalation Kit', sub:'reply templates for the impossible email'},
+    {t:'The Precept Portfolio', sub:'the teaching you already do, packaged'}
+  ]},
+  'You care|Pivot': {name:'The Encore Clinician', deliverables:[
+    {t:'The License Transfer Map', sub:'what carries across the state or field line', ship:"AI's map of which of your licenses and hours carry across the state line or field line — and the fastest bridge for what doesn't.", why:"licensure is the pivot's real gatekeeper; mapped early, it's a plan instead of a heartbreak.", move:"verify AI's map against the licensing board's page before deciding anything. Trust, then check."},
+    {t:'The Encore Path Sheet', sub:'lower-body-mileage versions of your field, priced'},
+    {t:'The Case-Story Portfolio', sub:'de-identified narratives that prove your judgment'},
+    {t:'The Community Class Proposal', sub:'the community-ed pitch'},
+    {t:'The One-Shift Experiment', sub:'clinical edition of the two-year test'}
+  ]},
+  'You make & move|Leverage': {name:'The Floor General', deliverables:[
+    {t:'The Downtime Memo', sub:'what the line actually loses, priced per month', ship:'what the line actually loses — the changeover, the waiting-on-parts, the rework — priced per month, with the fix and its payback period.', why:'the floor knows where the money leaks; leadership funds whoever writes it down. GDPval: production-recovery planning is a scored task.', move:'one page to the plant manager after the next bad week, while the numbers are hot.'},
+    {t:'The Checklist That Sticks', sub:'the recurring error, turned into a procedure'},
+    {t:'The Bid Machine', sub:'past quotes into the next estimate, in minutes'},
+    {t:'The Cross-Train Doc', sub:'what only you know, floor edition'},
+    {t:'The Supervisor Case', sub:'your step-up memo'}
+  ]},
+  'You make & move|Pivot': {name:'The Tools-Down Move', deliverables:[
+    {t:'The Inspector Map', sub:'from doing to overseeing — requirements and pay', ship:'AI\'s map from doing to overseeing: inspector, estimator, trainer, safety officer, project coordinator — requirements, pay, and your gap for each.', why:'the encore versions of the trades pay experience a premium; the map turns "someday" into a menu.', move:'pick the one that keeps what you love (the work) and sheds what\'s wearing out (the body).'},
+    {t:'The License Bridge', sub:'the cert-and-license plan for the move'},
+    {t:'The Owner Math', sub:'the shop/franchise dream, stress-tested'},
+    {t:'The Before/After Portfolio', sub:'the photo portfolio nobody thinks to make'},
+    {t:'The Teach-It Proposal', sub:'your knowledge, structured into a syllabus'}
+  ]},
+  'You tell|Leverage': {name:'The Body of Work', deliverables:[
+    {t:'The Body-of-Work Audit', sub:'every clip and credit, mined into one link', ship:"every clip, credit, campaign, and cut you've ever shipped — AI-mined from your own archives into one organized, linkable body of work.", why:'tellers document everyone but themselves. The brag file is the raise case, the pitch credential, and the pivot insurance, all in one.', move:'one afternoon, one link. Update it the first Friday of every month, forever.'},
+    {t:'The Rate Case', sub:'by-the-word vs. by-the-hour, receipts attached'},
+    {t:'The Franchise Memo', sub:'the pitch for the recurring beat only you can own'},
+    {t:'The Format Spec', sub:'your process, documented as a named format'},
+    {t:'The Distribution Memo', sub:'where your work should also live'}
+  ]},
+  'You tell|Pivot': {name:'The Owned Audience', deliverables:[
+    {t:'The Content-Into-Product Plan', sub:'what you know, priced small and sold repeatedly', ship:'the guide, template, or course version of what you know — priced small, sold repeatedly, drafted by AI from your own methods.', why:"package your knowledge (the magazine you're reading is the demo). Products scale; assignments don't.", move:'smallest version first. Ship at founding price to the first ten buyers.'},
+    {t:'The Comms Offer Page', sub:'ghostwriting or comms strategy, priced and bookable'},
+    {t:'The Trade-Press Kit', sub:'three pitches into your new target industry'},
+    {t:'The Newsletter MVP', sub:'monthly, useful, yours — thirty days pre-drafted'},
+    {t:'The Findability Fix', sub:'what the internet says when someone searches you'}
+  ]},
+  'You build & investigate|Leverage': {name:'The Trusted Translator', deliverables:[
+    {t:'The Debt Case', sub:'the risk you\'ve been carrying quietly, priced', ship:'the tech-debt (or case-backlog) memo: the risk you\'ve been carrying quietly, priced as exposure → likelihood → cost of the fix → cost of the fire.', why:'builders and investigators see the fault lines first; whoever writes them down owns the budget conversation.', move:'file before planning season. Foresight funds; hindsight blames.'},
+    {t:'The Postmortem Standard', sub:'your review process, documented and named'},
+    {t:'The Plain-English Briefing', sub:'the systems reality, translated for the board'},
+    {t:'The Tooling ROI Memo', sub:'the automation that pays for itself, costed'},
+    {t:'The On-Call Buyback', sub:'the runbook that ends your 2am monopoly'}
+  ]},
+  'You build & investigate|Pivot': {name:'The Case-File Independent', deliverables:[
+    {t:'The Case-File Portfolio', sub:'three matters told as problem → method → result', ship:'three investigations/builds/matters told as problem → method → result — sanitized, structured, judgment on display.', why:'your work is invisible until narrated; the case file is how systems people prove judgment without violating confidentiality.', move:'one case per interview or pitch, forever. Rotate quarterly.'},
+    {t:'The Expert Sheet', sub:'what your field pays experienced eyes for'},
+    {t:'The Solo Practice Page', sub:'the engagement version of your skill, priced'},
+    {t:'The Niche Memo', sub:'the recurring ask, turned into a named specialty'},
+    {t:'The Two-Tier Rate Card', sub:'your floor rate plus two tiers above it'}
+  ]}
+};
+
 function show(id){document.querySelectorAll('.step').forEach(function(s){s.classList.remove('active')});document.getElementById(id).classList.add('active');}
 function pick(v){f=v;document.getElementById('chosen1').textContent=v;show('s2');window.scrollTo({top:document.getElementById('s2').offsetTop-40,behavior:'smooth'});}
-function itch(v){i=v;document.getElementById('resultTitle').textContent=f+' × '+v;show('s3');window.scrollTo({top:document.getElementById('s3').offsetTop-40,behavior:'smooth'});}
+function itch(v){
+  i=v;
+  document.getElementById('resultTitle').textContent=f+' × '+v;
+  var path=PATHS[f+'|'+v];
+  var listEl=document.getElementById('pathsList');
+  var nameEl=document.getElementById('pathName');
+  listEl.innerHTML='';
+  if(path){
+    nameEl.textContent='Path: '+path.name;
+    path.deliverables.forEach(function(d,idx){
+      var li=document.createElement('li');
+      if(idx===0){
+        li.innerHTML='<b>'+d.t+'</b> — '+d.sub+' &nbsp;<b style="color:var(--teal)">FREE — full spec below</b>';
+      } else {
+        li.className='locked';
+        li.textContent=d.t+' — '+d.sub;
+      }
+      listEl.appendChild(li);
+    });
+    var free=path.deliverables[0];
+    document.getElementById('freespecKicker').textContent='Deliverable 01 · Free · '+f;
+    document.getElementById('freespecName').textContent=free.t;
+    document.getElementById('freespecBody').innerHTML='<b>Ship:</b> '+free.ship+'<br><b>Why it works:</b> '+free.why+'<br><b>Ship move:</b> '+free.move;
+  }
+  show('s3');
+  window.scrollTo({top:document.getElementById('s3').offsetTop-40,behavior:'smooth'});
+}
 function reset(){show('s1');return false;}
 function sendMag(){
   var em=document.getElementById('em').value||'(no email entered)';
