@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Choose Your Own Breakthrough — Full Book Draft v1 (all 14 paths)</title>
+<style>
+  :root{--pink:#ff4fc1;--navy:#16065a;--teal:#2a9bc4;--aqua:#59d6d6;--red:#e8342a;--orange:#f5a04c;--green:#6cc24a;--tan:#c8a06e;--gray:#9a9a9a;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:#2b2b2b;font-family:Georgia,serif;color:var(--navy);}
+  .pg{width:816px;height:1056px;margin:26px auto;position:relative;overflow:hidden;box-shadow:0 14px 44px rgba(0,0,0,.55);background:#fff;padding:50px 52px 66px;}
+  .pg.navy{background:var(--navy);color:#fff;}
+  .sans{font-family:'Avenir Next','Century Gothic',Helvetica,Arial,sans-serif;}
+  .kick{font-family:Helvetica,Arial,sans-serif;font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:var(--pink);font-weight:700;}
+  .script{font-family:'Snell Roundhand','Brush Script MT',cursive;}
+  h1{font-family:Helvetica,Arial,sans-serif;font-weight:800;text-transform:uppercase;line-height:1.0;}
+  .pathhead{border-bottom:5px solid var(--pink);padding-bottom:12px;margin-bottom:14px;}
+  .pathhead h1{font-size:38px;}
+  .pathhead h1 em{font-style:normal;color:var(--pink);}
+  .anchor{font-family:Helvetica,Arial,sans-serif;font-size:11px;color:#6a6288;margin-top:6px;line-height:1.5;}
+  .anchor b{color:var(--teal);}
+  .c{border-left:8px solid var(--pink);background:#faf7ff;border-radius:0 12px 12px 0;padding:10px 14px;margin:10px 0;}
+  .c b.t{font-family:Helvetica,Arial,sans-serif;font-size:14.5px;display:block;margin-bottom:3px;}
+  .c b.t i{color:var(--pink);font-style:normal;}
+  .c span{display:block;font-family:Helvetica,Arial,sans-serif;font-size:11.3px;line-height:1.45;margin:2px 0;}
+  .c .s b{color:var(--pink);} .c .w b{color:var(--teal);} .c .m b{color:var(--green);}
+  .strip{position:absolute;bottom:0;left:0;right:0;background:var(--navy);color:#fff;font-family:Helvetica,Arial,sans-serif;font-size:9.5px;padding:8px 52px;display:flex;gap:16px;}
+  .strip b{color:var(--pink);}
+  .folio{position:absolute;bottom:30px;right:52px;font-family:Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.16em;color:#9a92b8;text-transform:uppercase;}
+  .draftflag{position:absolute;top:14px;right:52px;font-family:Helvetica,Arial,sans-serif;font-size:9px;letter-spacing:.14em;color:#c9bfe4;text-transform:uppercase;}
+  /* map page */
+  .tree{display:grid;grid-template-columns:1.2fr .6fr 1fr;gap:6px;margin-top:14px;font-family:Helvetica,Arial,sans-serif;}
+  .vb{background:var(--navy);color:#fff;border-radius:10px;padding:9px 12px;font-size:12.5px;font-weight:700;}
+  .itch2{display:flex;flex-direction:column;gap:4px;justify-content:center;}
+  .ib{border:2px solid var(--navy);border-radius:8px;padding:4px 8px;font-size:10.5px;font-weight:700;text-align:center;}
+  .pn{display:flex;flex-direction:column;gap:4px;justify-content:center;}
+  .pb{background:#faf7ff;border-left:6px solid var(--pink);border-radius:0 8px 8px 0;padding:4px 10px;font-size:10.5px;}
+  .pb b{color:var(--pink);}
+</style>
+</head>
+<body>
+
+<!-- CLIENT-SIDE PASSWORD GATE — friction only, not real security. Password: CHOOSEYOU_2026 -->
+<div id="pw-gate" style="min-height:100vh;background:var(--navy);display:flex;align-items:center;justify-content:center;font-family:'Avenir Next','Century Gothic',Helvetica,Arial,sans-serif;padding:24px;">
+  <div style="background:#fff;border-radius:22px;padding:36px 34px;max-width:380px;width:100%;text-align:center;box-shadow:0 14px 44px rgba(0,0,0,.4);">
+    <div style="font-family:'Snell Roundhand','Brush Script MT',cursive;font-size:26px;color:var(--navy);">penny<b style="font-family:Helvetica,Arial,sans-serif;color:var(--pink);font-size:22px;"> WRENN</b></div>
+    <h2 style="font-size:19px;color:var(--navy);margin:14px 0 6px;text-transform:uppercase;letter-spacing:.04em;">Choose Your Own Breakthrough</h2>
+    <p style="font-size:13px;color:#6a6288;margin-bottom:18px;">Enter the password from your confirmation email to unlock the full book.</p>
+    <input id="pw-input" type="password" placeholder="Password" autocomplete="off"
+      style="width:100%;padding:12px 14px;border:3px solid var(--navy);border-radius:12px;font-size:15px;font-family:Georgia,serif;box-sizing:border-box;">
+    <button id="pw-submit" onclick="checkCyoaPassword()"
+      style="display:block;width:100%;margin-top:12px;font-weight:800;font-size:15px;background:var(--pink);color:var(--navy);padding:13px 0;border-radius:999px;border:none;cursor:pointer;">Unlock →</button>
+    <p id="pw-error" style="display:none;color:var(--red);font-size:12.5px;margin-top:10px;font-weight:700;">Wrong password — check your confirmation email and try again.</p>
+    <p style="font-size:11.5px;color:#9a92b8;margin-top:16px;">Don't have it? <a href="mailto:pennywrenn@gmail.com" style="color:var(--teal);font-weight:700;">Email Penny</a></p>
+  </div>
+</div>
+<script>
+  function checkCyoaPassword(){
+    var val=document.getElementById('pw-input').value;
+    if(val==='CHOOSEYOU_2026'){
+      document.getElementById('pw-gate').style.display='none';
+      document.getElementById('gated-content').style.display='block';
+      try{sessionStorage.setItem('cyoaUnlocked','1');}catch(e){}
+    } else {
+      document.getElementById('pw-error').style.display='block';
+    }
+  }
+  document.addEventListener('DOMContentLoaded',function(){
+    document.getElementById('pw-input').addEventListener('keydown',function(e){
+      if(e.key==='Enter'){checkCyoaPassword();}
+    });
+    try{
+      if(sessionStorage.getItem('cyoaUnlocked')==='1'){
+        document.getElementById('pw-gate').style.display='none';
+        document.getElementById('gated-content').style.display='block';
+      }
+    }catch(e){}
+  });
+</script>
+
+<div id="gated-content" style="display:none;">
+
+<!-- COVER -->
+<div class="pg navy">
+  <div class="draftflag">FULL BOOK · DRAFT v1 · COMPACT CHAPTERS — EACH PATH EXPANDS TO THE 5-PAGE TREATMENT (SEE PATH 01 EDITION) AFTER CONTENT APPROVAL</div>
+  <div style="margin-top:26px;" class="sans"><span class="script" style="font-size:30px;color:#fff;">penny</span> <b style="font-size:26px;letter-spacing:.06em;color:var(--pink);">WRENN</b> <span style="font-size:11px;letter-spacing:.3em;color:#cfc8ee;">MEDIA · IF I WERE YOU</span></div>
+  <div style="margin-top:70px;">
+    <div class="kick" style="color:var(--aqua);">The Adventure Book For Your Working Life</div>
+    <h1 style="font-size:66px;color:#fff;margin-top:12px;">Choose<br>your own<br><span style="color:var(--pink);">breakthrough</span></h1>
+    <p style="font-size:17px;color:#cfc8ee;margin-top:20px;max-width:540px;font-style:italic;">14 paths. 7 kinds of work. 2 kinds of itch. 70 deliverables I'd ship if I were you — anchored to the real-world work AI is actually measured against.</p>
+  </div>
+  <div style="position:absolute;bottom:104px;left:52px;right:52px;" class="sans">
+    <div style="background:rgba(255,255,255,.07);border-radius:14px;padding:15px 18px;font-size:12.5px;color:#cfc8ee;">
+      <b style="color:var(--aqua);">Everyone gets this whole book.</b> The quiz scored you into ONE path — your delivery email names it. Forgot yours? Check that email. Then read your path first… and trespass in everyone else's. That's allowed. That's the point.
+    </div>
+  </div>
+  <div class="strip"><span>PART FIELD GUIDE · PART ADVENTURE BOOK · PART EDUCATION IN HOW AI GOT MEASURED ON REAL WORK</span></div>
+</div>
+
+<!-- THE PLOT MAP -->
+<div class="pg">
+  <div class="kick">The Plot Map · How This Adventure Was Drawn</div>
+  <h1 style="font-size:40px;margin-top:10px;">Every adventure is a <span style="color:var(--pink);">flowchart</span> first.</h1>
+  <p style="font-size:13.5px;margin:12px 0;max-width:660px;">The classic choose-your-own-adventure books were plotted as branching maps before a word was written — decision trees, drawn whole, so every choice landed somewhere designed. Same here. Two questions, fourteen destinations. And the working thesis of this whole book: <b>AI is the first tool that lets a regular working person hold all the branches at once.</b></p>
+  <div class="tree">
+    <div class="vb">YOU MANAGE — people, ops, projects</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>01</b> The Forwardable Manager</div><div class="pb"><b>02</b> The Portable Operator</div></div>
+    <div class="vb">YOU SELL — clients, deals, relationships</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>03</b> The Documented Closer</div><div class="pb"><b>04</b> The Book-of-Business Owner</div></div>
+    <div class="vb">YOU COUNT — money, books, rules</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>05</b> The Finding Filer</div><div class="pb"><b>06</b> The Fractional Future</div></div>
+    <div class="vb">YOU CARE — patients, clients, communities</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>07</b> The Protocol Author</div><div class="pb"><b>08</b> The Encore Clinician</div></div>
+    <div class="vb">YOU MAKE &amp; MOVE — product, plant, logistics</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>09</b> The Floor General</div><div class="pb"><b>10</b> The Tools-Down Move</div></div>
+    <div class="vb">YOU TELL — words, media, story</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>11</b> The Body of Work</div><div class="pb"><b>12</b> The Owned Audience</div></div>
+    <div class="vb">YOU BUILD &amp; INVESTIGATE — systems, cases</div><div class="itch2"><div class="ib">LEVERAGE</div><div class="ib">PIVOT</div></div><div class="pn"><div class="pb"><b>13</b> The Trusted Translator</div><div class="pb"><b>14</b> The Case-File Independent</div></div>
+  </div>
+  <p class="sans" style="font-size:11px;color:#6a6288;margin-top:12px;">Every path: five deliverables — the ones nobody asked you for. Every deliverable: what you'd <b style="color:var(--pink)">SHIP</b> · <b style="color:var(--teal)">WHY</b> it works (with its GDPval anchor — OpenAI's benchmark of 220 real tasks from 44 occupations) · the <b style="color:var(--green)">MOVE</b> that puts it in the world.</p>
+  <div class="folio">THE PLOT MAP</div>
+  <div class="strip"><span><b>2 QUESTIONS · 14 DESTINATIONS · 70 DELIVERABLES</b></span><span>· YOURS IS ONE. ALL OF THEM ARE YOURS.</span></div>
+</div>
+
+<!-- PATH 01 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 01 of 14 · The Forwardable Manager</div>
+    <h1>You manage <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> more benchmark occupations are yours than anyone's — general &amp; operations managers, administrative services managers, project management specialists, every first-line supervisor. The record of valuable work in your function is public.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Rate <i>Memo</i></b><span class="s"><b>SHIP:</b> a one-page memo pricing your role against current market ranges, written so your boss forwards it unedited.</span><span class="w"><b>WHY:</b> the ask is the highest-leverage document most people never write (Babcock). GDPval: managers are tested on forwardable decision docs.</span><span class="m"><b>MOVE:</b> the week after a visible win. Subject: "For your next comp conversation." Then stop talking.</span></div>
+  <div class="c"><b class="t">02 · The Succession <i>Doc</i></b><span class="s"><b>SHIP:</b> the two-page "how my area actually runs" — structured so someone could cover you for two weeks.</span><span class="w"><b>WHY:</b> indispensable people get trapped; promotable people build systems. GDPval: admin-services managers are scored on operations documentation.</span><span class="m"><b>MOVE:</b> hand it over before review season: "This is what it takes to run my area. Let's talk about what I run next."</span></div>
+  <div class="c"><b class="t">03 · The Headcount <i>Case</i></b><span class="s"><b>SHIP:</b> the numbers-and-risk memo: hours in vs. available, cost of the gap, two options priced.</span><span class="w"><b>WHY:</b> "we're drowning" is a feeling; leadership buys math. GDPval: supervisor tasks ARE staffing math — coverage, lines, recovery plans.</span><span class="m"><b>MOVE:</b> deliver when the pain is visible to others — post-crunch, post-turnover — not at your angriest.</span></div>
+  <div class="c"><b class="t">04 · The Unsolicited <i>One-Pager</i></b><span class="s"><b>SHIP:</b> the fix nobody assigned you: problem → cost → fix → what you need → 30-day result.</span><span class="w"><b>WHY:</b> demonstration beats permission (Godin). GDPval: PM specialists score on exactly this — the process doc that standardizes chaos.</span><span class="m"><b>MOVE:</b> give it to the person whose problem it solves. The best sponsor is the person you just saved.</span></div>
+  <div class="c"><b class="t">05 · The Translate-Up <i>Brief</i></b><span class="s"><b>SHIP:</b> a quarterly half-pager converting your team's work into outcomes, money, and risk retired.</span><span class="w"><b>WHY:</b> sponsors advocate for people who make advocacy easy (Hewlett). GDPval: reporting leadership can act on is the measured skill.</span><span class="m"><b>MOVE:</b> quarterly, unasked, same format. By the third one it's an institution — and so are you.</span></div>
+  <div class="folio">PATH 01 · THE FORWARDABLE MANAGER</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU MANAGE × PIVOT — THE PORTABLE OPERATOR</span></div>
+</div>
+
+<!-- PATH 02 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 02 of 14 · The Portable Operator</div>
+    <h1>You manage <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same manager occupations — but now the benchmark is your translator: it shows what management work looks like in industries you haven't worked yet. You run things. Where you run them is a variable.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Portable Ops <i>Résumé</i></b><span class="s"><b>SHIP:</b> one narrative page of what you actually run — throughput, people, budget, chaos tamed — written in the target industry's language, not your current title's.</span><span class="w"><b>WHY:</b> your title undersells you; operations is the most transferable skill nobody translates. GDPval proves the same manager tasks recur across all nine sectors.</span><span class="m"><b>MOVE:</b> send to three humans in the target industry for a "does this read native?" check before any application sees it.</span></div>
+  <div class="c"><b class="t">02 · The Systems <i>Portfolio</i></b><span class="s"><b>SHIP:</b> before/afters of processes you built — the schedule that stopped the fights, the onboarding that stopped the churn — screenshotted, charted, documented.</span><span class="w"><b>WHY:</b> "unportfolio-able" work photographs fine; the seen thing wins. Hiring is a demonstration market (Godin).</span><span class="m"><b>MOVE:</b> one link, one page. It goes wherever your name goes: LinkedIn, applications, the coffee chat follow-up.</span></div>
+  <div class="c"><b class="t">03 · The Adjacent-Role <i>Map</i></b><span class="s"><b>SHIP:</b> AI-drafted map of ten roles one step sideways that pay more or cost less of you — with the real requirement gap for each, decoration stripped.</span><span class="w"><b>WHY:</b> most pivots fail from aiming at the far shore; adjacency compounds. Weak-ties research: the opportunity likely arrives from an acquaintance in one of these ten rooms.</span><span class="m"><b>MOVE:</b> pick two. Interview-the-other-side both with AI role-play before telling a soul.</span></div>
+  <div class="c"><b class="t">04 · The Reference <i>Kit</i></b><span class="s"><b>SHIP:</b> specific, gracious notes to each reference asking them to speak to ONE named strength — drafted, personalized, ready before you need them.</span><span class="w"><b>WHY:</b> references improvise unless briefed; sponsors perform best with forwardable material in hand (Hewlett).</span><span class="m"><b>MOVE:</b> send when the pivot goes live — not the night before the reference call.</span></div>
+  <div class="c"><b class="t">05 · The Two-Year Experiment <i>Plan</i></b><span class="s"><b>SHIP:</b> the smallest real test of the pivot — one class, one client, one shift — designed with dates, budget, and a kill/continue rule.</span><span class="w"><b>WHY:</b> sensible dreamers test before they resign; evidence beats optimism. The plan converts an identity crisis into a project plan.</span><span class="m"><b>MOVE:</b> calendar the first experiment inside 30 days. A plan without a date is a mood.</span></div>
+  <div class="folio">PATH 02 · THE PORTABLE OPERATOR</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU SELL × LEVERAGE — THE DOCUMENTED CLOSER</span></div>
+</div>
+
+<!-- PATH 03 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 03 of 14 · The Documented Closer</div>
+    <h1>You sell <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> sales managers, wholesale &amp; manufacturing reps (both flavors), real estate brokers &amp; agents, securities/financial sales, customer service reps — selling is one of the benchmark's biggest territories. Your instincts are now documentable assets.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Win-Back <i>List</i></b><span class="s"><b>SHIP:</b> a memo of your ten most valuable dormant accounts with an AI-researched "what changed for them since" line and a re-open move for each.</span><span class="w"><b>WHY:</b> dormant relationships are the cheapest pipeline that exists — weak ties, literally proven to carry the opportunity (Granovetter/LinkedIn).</span><span class="m"><b>MOVE:</b> run it as your own campaign this quarter; report the results up like it was always the plan.</span></div>
+  <div class="c"><b class="t">02 · The Objection <i>Playbook</i></b><span class="s"><b>SHIP:</b> your best answers to the eight objections you actually hear — dictated, structured by AI, and named after you.</span><span class="w"><b>WHY:</b> documenting your method converts personal instinct into visible leadership. GDPval: producing team-briefing docs is a measured general-manager task.</span><span class="m"><b>MOVE:</b> hand it to your manager for the next new hire. You just became the person who trains closers.</span></div>
+  <div class="c"><b class="t">03 · The Deal <i>Post-Mortem</i></b><span class="s"><b>SHIP:</b> a quarterly one-pager: what closed, what died, and the pattern — with the one process change that would've saved the biggest loss.</span><span class="w"><b>WHY:</b> reps report numbers; future sales leaders report patterns. It's the Translate-Up Brief in commission clothing.</span><span class="m"><b>MOVE:</b> send it unasked, same format, every quarter. Institution rules apply.</span></div>
+  <div class="c"><b class="t">04 · The Territory <i>Case</i></b><span class="s"><b>SHIP:</b> the data memo for the patch, book, or quota change you want — market math in, feelings out.</span><span class="w"><b>WHY:</b> the ask is the leverage (Babcock); territory decisions go to whoever documents the case before planning season.</span><span class="m"><b>MOVE:</b> deliver 60 days before quotas get set, not 6 days after.</span></div>
+  <div class="c"><b class="t">05 · The Referral <i>Engine</i></b><span class="s"><b>SHIP:</b> the follow-up sequence that turns happy customers into public proof and warm intros — drafted once, sent forever.</span><span class="w"><b>WHY:</b> reviews-into-reputation is the compounding asset reps never build because it pays next year, not this month.</span><span class="m"><b>MOVE:</b> automate the send for every closed-won. Two minutes per deal, forever.</span></div>
+  <div class="folio">PATH 03 · THE DOCUMENTED CLOSER</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU SELL × PIVOT — THE BOOK-OF-BUSINESS OWNER</span></div>
+</div>
+
+<!-- PATH 04 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 04 of 14 · The Book-of-Business Owner</div>
+    <h1>You sell <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same selling occupations — read now as proof that YOUR skill transfers across all nine sectors. The relationships are yours. The question is what you sell through them next.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Book <i>Audit</i></b><span class="s"><b>SHIP:</b> the honest map of what's actually yours — every relationship, organized by warmth, industry, and who'd take your call at a new company (or your own).</span><span class="w"><b>WHY:</b> your book is the asset; most reps never inventory it until the week they need it. Weak ties carry the next chapter.</span><span class="m"><b>MOVE:</b> build it on personal time, personal tools. This document is yours; keep it that way — and keep it clean of employer property.</span></div>
+  <div class="c"><b class="t">02 · The Vertical Translation <i>Sheet</i></b><span class="s"><b>SHIP:</b> your selling record rewritten for the target industry — their metrics, their sales cycle, their words for pipeline.</span><span class="w"><b>WHY:</b> selling transfers; vocabulary doesn't. The parser and the hiring manager both read dialect first.</span><span class="m"><b>MOVE:</b> AI drafts three versions (SaaS, services, whatever you're circling); you keep the one that reads native.</span></div>
+  <div class="c"><b class="t">03 · The Consulting <i>One-Pager</i></b><span class="s"><b>SHIP:</b> the offer page that sells your sales SYSTEM, not your hours: what you fix, for whom, at what price, how to book.</span><span class="w"><b>WHY:</b> you already sell for a living; the pivot is selling YOU. Ten-hours-a-month advisory is the lowest-risk test of independence.</span><span class="m"><b>MOVE:</b> publish it, then pitch the five businesses that already meet your customers.</span></div>
+  <div class="c"><b class="t">04 · The Personal <i>Pipeline</i></b><span class="s"><b>SHIP:</b> your job/client search run like a quarter: stages, weekly activity targets, follow-up cadence, a CRM of one.</span><span class="w"><b>WHY:</b> you'd never run a territory on vibes; don't run your future on them. A process, not a mood.</span><span class="m"><b>MOVE:</b> Monday pipeline review with AI as your sales manager. Twenty minutes. No mercy.</span></div>
+  <div class="c"><b class="t">05 · The Comp <i>Rehearsal</i></b><span class="s"><b>SHIP:</b> the negotiation script for your next OTE or retainer — rehearsed against AI playing the lowballer until the number comes out clean.</span><span class="w"><b>WHY:</b> closers famously under-negotiate their own deals (Babcock's whole point). You'd never let a prospect anchor you; don't let an offer.</span><span class="m"><b>MOVE:</b> rehearse out loud, three rounds, before any live conversation about money.</span></div>
+  <div class="folio">PATH 04 · THE BOOK-OF-BUSINESS OWNER</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU COUNT × LEVERAGE — THE FINDING FILER</span></div>
+</div>
+
+<!-- PATH 05 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 05 of 14 · The Finding Filer</div>
+    <h1>You count <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> accountants &amp; auditors, financial managers, financial &amp; investment analysts, personal financial advisors, compliance officers, buyers &amp; purchasing agents. The benchmark is thick with your work — and your work is thick with findings nobody files.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Cost-Save <i>Memo</i></b><span class="s"><b>SHIP:</b> the finding you already spotted — the duplicate spend, the bad contract, the leak — priced, sourced, and filed as a one-page memo nobody asked for.</span><span class="w"><b>WHY:</b> unsolicited findings are how finance people become leadership people; demonstration beats permission. GDPval: analyst tasks are exactly this — findings, documented.</span><span class="m"><b>MOVE:</b> file it to the person who owns the P&amp;L line, with the fix costed. Copy no one else.</span></div>
+  <div class="c"><b class="t">02 · The Plain-English <i>Report</i></b><span class="s"><b>SHIP:</b> the monthly numbers, translated: one page the non-finance room actually understands, jargon stripped by AI, judgment kept by you.</span><span class="w"><b>WHY:</b> the counter who can talk to the room gets the room. De-jargoning is the most underpriced promotion skill in finance.</span><span class="m"><b>MOVE:</b> attach it to the real report every month until people start asking for "your version" first.</span></div>
+  <div class="c"><b class="t">03 · The Close-Faster <i>Doc</i></b><span class="s"><b>SHIP:</b> the unsolicited process one-pager on the monthly close: where the days go, which handoffs bleed, the fix.</span><span class="w"><b>WHY:</b> everyone hates the close; nobody documents why. GDPval scores process documentation as measured, valuable work.</span><span class="m"><b>MOVE:</b> propose piloting the fix yourself next close. Small, reversible, yours.</span></div>
+  <div class="c"><b class="t">04 · The Controls <i>Case</i></b><span class="s"><b>SHIP:</b> the risk memo: the control gap you've been quietly worrying about, framed as exposure → likelihood → fix → cost of doing nothing.</span><span class="w"><b>WHY:</b> compliance officers in the benchmark are scored on exactly this framing. Risk flagged in writing is leadership; risk flagged in hallways is worry.</span><span class="m"><b>MOVE:</b> deliver before audit season, when it reads as foresight instead of blame.</span></div>
+  <div class="c"><b class="t">05 · The License <i>Rate Memo</i></b><span class="s"><b>SHIP:</b> the comp case built on your credentials — CPA, CFA, licenses — priced against current market for your exact stack, with the certification-shortcut plan for the next raise attached.</span><span class="w"><b>WHY:</b> credentialed fields have the cleanest market data; the ask with receipts is nearly unanswerable (Babcock).</span><span class="m"><b>MOVE:</b> after busy season ends, while your value is freshest in everyone's memory.</span></div>
+  <div class="folio">PATH 05 · THE FINDING FILER</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU COUNT × PIVOT — THE FRACTIONAL FUTURE</span></div>
+</div>
+
+<!-- PATH 06 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 06 of 14 · The Fractional Future</div>
+    <h1>You count <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same finance occupations — plus this fact: every small business in America needs your skills part-time and can't hire them full-time. The benchmark shows the work; the market shows the gap.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Fractional <i>Offer Page</i></b><span class="s"><b>SHIP:</b> one page: books cleaned monthly / CFO-lite advisory / audit-prep — for whom, at what price, how to book.</span><span class="w"><b>WHY:</b> fractional finance is the most proven solo pivot there is; the offer page is the entire storefront. Package the knowledge you give your employer free.</span><span class="m"><b>MOVE:</b> publish, then pitch five businesses whose books you already know are messy — their vendors will tell you.</span></div>
+  <div class="c"><b class="t">02 · The Industry <i>Switch Sheet</i></b><span class="s"><b>SHIP:</b> your numbers record translated into the target vertical's language — their margins, their metrics, their seasonality.</span><span class="w"><b>WHY:</b> a controller is a controller everywhere, but hiring managers buy fluency. GDPval proves finance tasks recur across all nine sectors.</span><span class="m"><b>MOVE:</b> three AI-drafted versions; keep the one a native would write.</span></div>
+  <div class="c"><b class="t">03 · The Certification <i>Shortcut Plan</i></b><span class="s"><b>SHIP:</b> AI's answer to "which credential raises my rate most for least study, given what I already know" — with the eight-week study plan built around your actual life.</span><span class="w"><b>WHY:</b> credentialed pivots price cleanly; the shortcut question is the one nobody asks before enrolling in the wrong thing.</span><span class="m"><b>MOVE:</b> feed in the exam outline tonight. Decide with data by Friday.</span></div>
+  <div class="c"><b class="t">04 · The Advisory <i>Ten-Hours</i></b><span class="s"><b>SHIP:</b> a structured ten-hours-a-month advisory offer for smaller firms in your industry — scope, boundaries, deliverables, price.</span><span class="w"><b>WHY:</b> consulting without quitting is the two-year experiment in its safest form: real clients, real evidence, salary intact.</span><span class="m"><b>MOVE:</b> first client at founding rate; raise on evidence after three.</span></div>
+  <div class="c"><b class="t">05 · The Treasurer <i>Résumé</i></b><span class="s"><b>SHIP:</b> your career converted into governance language — the board-seat/treasurer one-pager nonprofits are actively hunting for.</span><span class="w"><b>WHY:</b> board seats compound network, standing, and deal flow; finance veterans are the most-wanted seat at the table.</span><span class="m"><b>MOVE:</b> send to three local orgs whose missions you'd defend at dinner.</span></div>
+  <div class="folio">PATH 06 · THE FRACTIONAL FUTURE</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU CARE × LEVERAGE — THE PROTOCOL AUTHOR</span></div>
+</div>
+
+<!-- PATH 07 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 07 of 14 · The Protocol Author</div>
+    <h1>You care <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> registered nurses, nurse practitioners, pharmacists, child/family/school social workers, medical secretaries, recreation workers, medical &amp; health services managers. Care work is all over the benchmark — because care work runs on documents too.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Schedule Nobody <i>Fights About</i></b><span class="s"><b>SHIP:</b> constraints in, fair rotation out — plus the memo explaining the logic so it survives the first complaint.</span><span class="w"><b>WHY:</b> the schedule is where care units bleed morale; whoever fixes it becomes indispensable-in-the-good-way. GDPval: healthcare-ops scheduling is literally a benchmark task.</span><span class="m"><b>MOVE:</b> pilot one cycle, publish the memo with it, take the feedback in writing.</span></div>
+  <div class="c"><b class="t">02 · The Staffing <i>Case</i></b><span class="s"><b>SHIP:</b> patient-load math turned into the memo leadership can act on: ratios, acuity, overtime cost, risk of status quo, two options priced.</span><span class="w"><b>WHY:</b> "we're short" is a feeling; the priced case is a decision. Same headcount logic as Path 01, higher stakes.</span><span class="m"><b>MOVE:</b> file after the hard month, while the overtime line still proves it.</span></div>
+  <div class="c"><b class="t">03 · The Protocol <i>Doc</i></b><span class="s"><b>SHIP:</b> your method for the hard thing — the difficult family, the wound care, the de-escalation — AI-interviewed out of you and written as a named protocol.</span><span class="w"><b>WHY:</b> the way you do the thing is teachable, and named protocols are how clinicians become educators and leads.</span><span class="m"><b>MOVE:</b> present it at one staff meeting. Once it's taught, it's yours on the record.</span></div>
+  <div class="c"><b class="t">04 · The De-Escalation <i>Kit</i></b><span class="s"><b>SHIP:</b> the reply templates for the angry family email, the complaint, the impossible request — calm, documented, high ground kept.</span><span class="w"><b>WHY:</b> care workers absorb conflict without armor; templates are armor. Prepped words beat improvised ones at 2 a.m.</span><span class="m"><b>MOVE:</b> share the kit with your unit. The person who arms colleagues gets remembered at promotion time.</span></div>
+  <div class="c"><b class="t">05 · The Precept <i>Portfolio</i></b><span class="s"><b>SHIP:</b> the teaching you already do — orientation, precepting, in-services — packaged as a reusable guide with your name on it.</span><span class="w"><b>WHY:</b> training you've given is a product you already made and never claimed. It's the promotion case's exhibit A.</span><span class="m"><b>MOVE:</b> bring it to your annual review as an artifact, not an anecdote.</span></div>
+  <div class="folio">PATH 07 · THE PROTOCOL AUTHOR</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU CARE × PIVOT — THE ENCORE CLINICIAN</span></div>
+</div>
+
+<!-- PATH 08 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 08 of 14 · The Encore Clinician</div>
+    <h1>You care <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same care occupations — read as a map of where the field flexes: education, telehealth, review work, community practice. Fields that flex are fields you can pivot inside of, without leaving what you love.</div>
+  </div>
+  <div class="c"><b class="t">01 · The License <i>Transfer Map</i></b><span class="s"><b>SHIP:</b> AI's map of which of your licenses and hours carry across the state line or field line — and the fastest bridge for what doesn't.</span><span class="w"><b>WHY:</b> licensure is the pivot's real gatekeeper; mapped early, it's a plan instead of a heartbreak.</span><span class="m"><b>MOVE:</b> verify AI's map against the licensing board's page before deciding anything. Trust, then check.</span></div>
+  <div class="c"><b class="t">02 · The Encore <i>Path Sheet</i></b><span class="s"><b>SHIP:</b> the lower-body-mileage versions of your field, priced: educator, inspector, telehealth, case review, legal-nurse consulting.</span><span class="w"><b>WHY:</b> experience prices UP in encore roles — the exact opposite of the floor. Age-proofing is steering, not retreating.</span><span class="m"><b>MOVE:</b> shadow-by-AI the top two: role-play a week in each before pursuing either.</span></div>
+  <div class="c"><b class="t">03 · The Case-Story <i>Portfolio</i></b><span class="s"><b>SHIP:</b> three de-identified case narratives — problem → judgment → outcome — proving the clinical thinking a résumé can't show.</span><span class="w"><b>WHY:</b> care work hides its evidence behind privacy; structured stories are the compliant way to make judgment visible.</span><span class="m"><b>MOVE:</b> scrub identifiers ruthlessly, then use one story per interview answer, forever.</span></div>
+  <div class="c"><b class="t">04 · The Community <i>Class Proposal</i></b><span class="s"><b>SHIP:</b> the community-ed pitch: caregiver training, health literacy, the thing families keep asking you in hallways — drafted for the library, the Y, the union hall.</span><span class="w"><b>WHY:</b> teaching locally is the lowest-risk test of the educator pivot AND a paid audience-builder.</span><span class="m"><b>MOVE:</b> pitch two venues. Founding rate. Collect testimonials from session one.</span></div>
+  <div class="c"><b class="t">05 · The One-Shift <i>Experiment</i></b><span class="s"><b>SHIP:</b> the two-year experiment, clinical edition: one per-diem shift, one telehealth block, one teaching gig — dated, budgeted, kill/continue rule attached.</span><span class="w"><b>WHY:</b> care pivots fail from all-or-nothing exits; the single shift is evidence with a safety net.</span><span class="m"><b>MOVE:</b> book the first experiment within 30 days, before the courage wears off.</span></div>
+  <div class="folio">PATH 08 · THE ENCORE CLINICIAN</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU MAKE &amp; MOVE × LEVERAGE — THE FLOOR GENERAL</span></div>
+</div>
+
+<!-- PATH 09 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 09 of 14 · The Floor General</div>
+    <h1>You make &amp; move <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> industrial &amp; mechanical engineers, first-line production supervisors, shipping/receiving &amp; inventory clerks, order clerks, buyers. The benchmark's production tasks are schedule recovery, trial documentation, line math — your Tuesday.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Downtime <i>Memo</i></b><span class="s"><b>SHIP:</b> what the line actually loses — the changeover, the waiting-on-parts, the rework — priced per month, with the fix and its payback period.</span><span class="w"><b>WHY:</b> the floor knows where the money leaks; leadership funds whoever writes it down. GDPval: production-recovery planning is a scored task.</span><span class="m"><b>MOVE:</b> one page to the plant manager after the next bad week, while the numbers are hot.</span></div>
+  <div class="c"><b class="t">02 · The Checklist That <i>Sticks</i></b><span class="s"><b>SHIP:</b> the recurring error turned into a printed procedure — posted at the point of failure, written in the words the crew actually uses.</span><span class="w"><b>WHY:</b> the person who ends a chronic mistake owns a number: scrap down, rework down. Numbers get promoted.</span><span class="m"><b>MOVE:</b> pilot on one shift; let the other shift ask for it.</span></div>
+  <div class="c"><b class="t">03 · The Bid <i>Machine</i></b><span class="s"><b>SHIP:</b> past quotes fed to AI → the next estimate drafted in your format in minutes, with your judgment rules (margins, gotchas) written into the spec.</span><span class="w"><b>WHY:</b> estimating speed IS capacity; the documented estimate system is worth more than any single bid.</span><span class="m"><b>MOVE:</b> time the old way vs. the machine way once. Show the two numbers to whoever sets your pay.</span></div>
+  <div class="c"><b class="t">04 · The Cross-Train <i>Doc</i></b><span class="s"><b>SHIP:</b> the succession doc, floor edition: what only you know — the machine's moods, the vendor's real lead times — written so the next person survives week one.</span><span class="w"><b>WHY:</b> promotable beats indispensable, on the floor most of all. Institutional knowledge documented is leadership demonstrated.</span><span class="m"><b>MOVE:</b> hand it up with the same line as Path 01: "This is what it takes to run my area. What do I run next?"</span></div>
+  <div class="c"><b class="t">05 · The Supervisor <i>Case</i></b><span class="s"><b>SHIP:</b> your step-up memo: crew results under your informal lead, the certification shortcut mapped, market rate for the title attached.</span><span class="w"><b>WHY:</b> the floor-to-supervisor jump goes to whoever documents readiness before the opening exists (Babcock, in steel toes).</span><span class="m"><b>MOVE:</b> file it with your supervisor's supervisor when a line expands — not when the posting appears.</span></div>
+  <div class="folio">PATH 09 · THE FLOOR GENERAL</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU MAKE &amp; MOVE × PIVOT — THE TOOLS-DOWN MOVE</span></div>
+</div>
+
+<!-- PATH 10 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 10 of 14 · The Tools-Down Move</div>
+    <h1>You make &amp; move <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same production occupations — plus the truth the benchmark makes visible: the industry pays people who KNOW the work to inspect it, estimate it, teach it, and coordinate it. Lower body mileage, same expertise.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Inspector <i>Map</i></b><span class="s"><b>SHIP:</b> AI's map from doing to overseeing: inspector, estimator, trainer, safety officer, project coordinator — requirements, pay, and your gap for each.</span><span class="w"><b>WHY:</b> the encore versions of the trades pay experience a premium; the map turns "someday" into a menu.</span><span class="m"><b>MOVE:</b> pick the one that keeps what you love (the work) and sheds what's wearing out (the body).</span></div>
+  <div class="c"><b class="t">02 · The License <i>Bridge</i></b><span class="s"><b>SHIP:</b> the cert-and-license plan for the move — what transfers, what's missing, the eight-week study plan around your shifts.</span><span class="w"><b>WHY:</b> in the trades the credential IS the pivot; the shortcut question saves a year of wrong classes.</span><span class="m"><b>MOVE:</b> exam outline in tonight; enrollment decision by payday.</span></div>
+  <div class="c"><b class="t">03 · The Owner <i>Math</i></b><span class="s"><b>SHIP:</b> the honest model of the shop/franchise/contracting dream: startup costs, insurance, the first year's real cash flow — stress-tested by AI before any broker gets to you.</span><span class="w"><b>WHY:</b> ownership daydreams die of arithmetic done late. Done early, arithmetic is a plan.</span><span class="m"><b>MOVE:</b> run three scenarios (lean/likely/rough). If lean survives, keep going.</span></div>
+  <div class="c"><b class="t">04 · The Before/After <i>Portfolio</i></b><span class="s"><b>SHIP:</b> the photo portfolio of work nobody thinks to photograph: installs, repairs, builds, the impossible job — captioned with what it took.</span><span class="w"><b>WHY:</b> trades work photographs better than office work ever will; the seen thing wins bids, jobs, and students.</span><span class="m"><b>MOVE:</b> one link. It lives in your texts, your marketplace listings, your kid's bragging rights.</span></div>
+  <div class="c"><b class="t">05 · The Teach-It <i>Proposal</i></b><span class="s"><b>SHIP:</b> the union training module, community-college course, or apprentice program pitch — your knowledge, structured by AI into a syllabus with your name on it.</span><span class="w"><b>WHY:</b> every trade is short of teachers and long on retirements; teaching is the pivot that pays you to stay connected.</span><span class="m"><b>MOVE:</b> pitch the union hall and the community college the same week. Let them compete.</span></div>
+  <div class="folio">PATH 10 · THE TOOLS-DOWN MOVE</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU TELL × LEVERAGE — THE BODY OF WORK</span></div>
+</div>
+
+<!-- PATH 11 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 11 of 14 · The Body of Work</div>
+    <h1>You tell <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> editors, news analysts/reporters/journalists, producers &amp; directors, film &amp; video editors, audio &amp; video technicians. The benchmark measured storytelling as economic work — which is what you've been saying all along.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Body-of-Work <i>Audit</i></b><span class="s"><b>SHIP:</b> every clip, credit, campaign, and cut you've ever shipped — AI-mined from your own archives into one organized, linkable body of work.</span><span class="w"><b>WHY:</b> tellers document everyone but themselves. The brag file is the raise case, the pitch credential, and the pivot insurance, all in one.</span><span class="m"><b>MOVE:</b> one afternoon, one link. Update it the first Friday of every month, forever.</span></div>
+  <div class="c"><b class="t">02 · The Rate <i>Case</i></b><span class="s"><b>SHIP:</b> your by-the-word vs. by-the-hour math, receipts attached — what your care-to-throughput ratio actually costs you, and the number that fixes it.</span><span class="w"><b>WHY:</b> creative work is systematically underpriced by people who never run their own arithmetic (the whole Article 03 argument, run on yourself).</span><span class="m"><b>MOVE:</b> next assignment negotiation, quote from the math, not the fear.</span></div>
+  <div class="c"><b class="t">03 · The Franchise <i>Memo</i></b><span class="s"><b>SHIP:</b> the pitch to your own outlet for the recurring beat only you can own — the column, the segment, the series — with three banked installments as proof.</span><span class="w"><b>WHY:</b> franchises compound; assignments don't. Named real estate inside your outlet is leverage no single piece buys.</span><span class="m"><b>MOVE:</b> pitch with the three installments attached. Demonstration, not proposal.</span></div>
+  <div class="c"><b class="t">04 · The Format <i>Spec</i></b><span class="s"><b>SHIP:</b> your process — how you structure, interview, cut, package — documented as a named format others could run.</span><span class="w"><b>WHY:</b> the teller who documents the format stops being a maker and becomes a franchise. That's the EP/editor-in-chief move.</span><span class="m"><b>MOVE:</b> use it to delegate one production. The spec proves itself by working without you.</span></div>
+  <div class="c"><b class="t">05 · The Distribution <i>Memo</i></b><span class="s"><b>SHIP:</b> the one-pager on where your work should ALSO live — syndication, newsletter, the platform your outlet ignores — with the numbers to justify it.</span><span class="w"><b>WHY:</b> packaging is a job you do deliberately (the Article 01 rule, applied to your own work). Distribution is the raise your content never asked for.</span><span class="m"><b>MOVE:</b> propose owning the experiment for a quarter. Report results like it was always the plan.</span></div>
+  <div class="folio">PATH 11 · THE BODY OF WORK</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU TELL × PIVOT — THE OWNED AUDIENCE</span></div>
+</div>
+
+<!-- PATH 12 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 12 of 14 · The Owned Audience</div>
+    <h1>You tell <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same storytelling occupations — pointed outward. Every business in your county needs what you do daily and can't do it at all. The pivot isn't leaving the craft; it's changing who pays for it.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Content-Into-Product <i>Plan</i></b><span class="s"><b>SHIP:</b> the guide, template, or course version of what you know — priced small, sold repeatedly, drafted by AI from your own methods.</span><span class="w"><b>WHY:</b> package your knowledge (the magazine you're reading is the demo). Products scale; assignments don't.</span><span class="m"><b>MOVE:</b> smallest version first. Ship at founding price to the first ten buyers.</span></div>
+  <div class="c"><b class="t">02 · The Comms <i>Offer Page</i></b><span class="s"><b>SHIP:</b> the one-page storefront: ghostwriting, comms strategy, content systems — what you do, for whom, at what price, how to book.</span><span class="w"><b>WHY:</b> businesses buy clarity from people who make things clear for a living. The offer page is your own medicine, taken.</span><span class="m"><b>MOVE:</b> publish, then pitch the five businesses who already meet your would-be clients.</span></div>
+  <div class="c"><b class="t">03 · The Trade-Press <i>Kit</i></b><span class="s"><b>SHIP:</b> three 150-word pitches to the trade press of your NEW target industry — establishing you as the teller who speaks their language.</span><span class="w"><b>WHY:</b> visibility in the target field beats credentials from the old one; publication is the fastest credibility transfer there is.</span><span class="m"><b>MOVE:</b> one pitch a week for three weeks. Debrief every no with AI; ignore most of what it says.</span></div>
+  <div class="c"><b class="t">04 · The Newsletter <i>MVP</i></b><span class="s"><b>SHIP:</b> monthly, useful, yours — structure and consistency handled by AI, the knowing supplied by you. Thirty days of it, pre-drafted.</span><span class="w"><b>WHY:</b> the owned audience is the pivot's pension: it goes wherever you go and compounds while you decide.</span><span class="m"><b>MOVE:</b> issue #1 to fifty people you actually know. Weak ties do the rest — that's literally the research.</span></div>
+  <div class="c"><b class="t">05 · The Findability <i>Fix</i></b><span class="s"><b>SHIP:</b> the audit of what the internet says when someone searches you, plus the fixes: bio, portfolio link, the three posts that establish the new positioning.</span><span class="w"><b>WHY:</b> the first page of you is the story (the ORM confession, applied). Pivots die when the internet still sells the old you.</span><span class="m"><b>MOVE:</b> fix the top three results' worth of presence this week. Recheck monthly.</span></div>
+  <div class="folio">PATH 12 · THE OWNED AUDIENCE</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU BUILD &amp; INVESTIGATE × LEVERAGE — THE TRUSTED TRANSLATOR</span></div>
+</div>
+
+<!-- PATH 13 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 13 of 14 · The Trusted Translator</div>
+    <h1>You build &amp; investigate <em>× leverage</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> software developers, lawyers, private detectives &amp; investigators, computer &amp; information systems managers, first-line supervisors of police &amp; detectives, compliance officers. The benchmark's systems-and-cases work — findings, briefs, documentation — is your native format.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Debt <i>Case</i></b><span class="s"><b>SHIP:</b> the tech-debt (or case-backlog) memo: the risk you've been carrying quietly, priced as exposure → likelihood → cost of the fix → cost of the fire.</span><span class="w"><b>WHY:</b> builders and investigators see the fault lines first; whoever writes them down owns the budget conversation.</span><span class="m"><b>MOVE:</b> file before planning season. Foresight funds; hindsight blames.</span></div>
+  <div class="c"><b class="t">02 · The Postmortem <i>Standard</i></b><span class="s"><b>SHIP:</b> your incident/case-review process, documented and named — blameless, structured, reusable by teams that aren't yours.</span><span class="w"><b>WHY:</b> the named process is how a strong individual becomes visible infrastructure. GDPval scores process documentation as measured work.</span><span class="m"><b>MOVE:</b> run one review with it publicly. Adoption does the promotion campaign for you.</span></div>
+  <div class="c"><b class="t">03 · The Plain-English <i>Briefing</i></b><span class="s"><b>SHIP:</b> the systems reality translated for the board/the chief/the client — one page, jargon stripped, decisions framed.</span><span class="w"><b>WHY:</b> the technical person who can talk to the room eventually runs the room. De-jargoning is the promotion skill.</span><span class="m"><b>MOVE:</b> attach it to your next major update. Watch who starts CC'ing you.</span></div>
+  <div class="c"><b class="t">04 · The Tooling <i>ROI Memo</i></b><span class="s"><b>SHIP:</b> the unsolicited one-pager, technical edition: the tool/automation you know would pay for itself, costed, with a 30-day pilot plan.</span><span class="w"><b>WHY:</b> demonstration beats permission — and a pilot proposal is the cheapest demonstration there is.</span><span class="m"><b>MOVE:</b> volunteer to run the pilot. Own the number it produces.</span></div>
+  <div class="c"><b class="t">05 · The On-Call <i>Buyback</i></b><span class="s"><b>SHIP:</b> the runbook that ends your 2 a.m. monopoly: the fixes only you know, documented so the rotation actually rotates.</span><span class="w"><b>WHY:</b> the succession-doc law applies to pagers too: promotable beats indispensable, and sleep is compensation.</span><span class="m"><b>MOVE:</b> trade it explicitly: the runbook for the growth conversation. In writing.</span></div>
+  <div class="folio">PATH 13 · THE TRUSTED TRANSLATOR</div>
+  <div class="strip"><span><b>NEXT PATH:</b> YOU BUILD &amp; INVESTIGATE × PIVOT — THE CASE-FILE INDEPENDENT</span></div>
+</div>
+
+<!-- PATH 14 -->
+<div class="pg">
+  <div class="pathhead">
+    <div class="kick">Path 14 of 14 · The Case-File Independent</div>
+    <h1>You build &amp; investigate <em>× pivot</em></h1>
+    <div class="anchor"><b>GDPval anchor:</b> the same systems-and-cases occupations — noting that investigators, reviewers, auditors, and experts are the benchmark's most independence-ready cohort: the work is already engagement-shaped.</div>
+  </div>
+  <div class="c"><b class="t">01 · The Case-File <i>Portfolio</i></b><span class="s"><b>SHIP:</b> three investigations/builds/matters told as problem → method → result — sanitized, structured, judgment on display.</span><span class="w"><b>WHY:</b> your work is invisible until narrated; the case file is how systems people prove judgment without violating confidentiality.</span><span class="m"><b>MOVE:</b> one case per interview or pitch, forever. Rotate quarterly.</span></div>
+  <div class="c"><b class="t">02 · The Expert <i>Sheet</i></b><span class="s"><b>SHIP:</b> AI's map of what your field pays experienced eyes for — expert witness, cert review, audit panels, grant review — with your qualification gap for each.</span><span class="w"><b>WHY:</b> paid judging is the highest-rate, lowest-hour version of your expertise, and almost nobody applies.</span><span class="m"><b>MOVE:</b> apply to two panels this month. The bar is lower than your imposter syndrome says.</span></div>
+  <div class="c"><b class="t">03 · The Solo Practice <i>Page</i></b><span class="s"><b>SHIP:</b> the offer page for the engagement version of your skill: the security audit, the systems assessment, the investigation, the compliance review — scoped, priced, bookable.</span><span class="w"><b>WHY:</b> engagement-shaped work needs only a storefront to become independent work.</span><span class="m"><b>MOVE:</b> publish; pitch the five firms too small to employ you full-time and too exposed to skip you.</span></div>
+  <div class="c"><b class="t">04 · The Niche <i>Memo</i></b><span class="s"><b>SHIP:</b> AI's answer to "what question do people keep bringing me?" — mined from your own inbox — turned into a named specialty.</span><span class="w"><b>WHY:</b> the recurring ask is a service; niching is how independents stop competing on rate.</span><span class="m"><b>MOVE:</b> rename your offer page around it. Watch referrals get easier to give.</span></div>
+  <div class="c"><b class="t">05 · The Two-Tier <i>Rate Card</i></b><span class="s"><b>SHIP:</b> your floor rate plus two tiers above it — with AI's market research on who pays premium for the work you already deliver confidently at the floor.</span><span class="w"><b>WHY:</b> premium buyers exist for premium work; the tiers make asking structural instead of personal (Babcock, priced).</span><span class="m"><b>MOVE:</b> quote the middle tier first. Let the floor be the concession, never the opener.</span></div>
+  <div class="folio">PATH 14 · THE CASE-FILE INDEPENDENT</div>
+  <div class="strip"><span><b>LAST PAGE:</b> THE DOOR</span></div>
+</div>
+
+<!-- THE DOOR -->
+<div class="pg navy" style="display:flex;flex-direction:column;justify-content:center;text-align:center;">
+  <div class="kick" style="color:var(--aqua);">The End of Every Path · Choose What Happens Next</div>
+  <h1 style="font-size:44px;color:#fff;margin:22px auto 8px;max-width:620px;">Fourteen paths. Seventy deliverables. <span style="color:var(--pink);">One question left.</span></h1>
+  <p class="sans" style="color:#cfc8ee;max-width:500px;margin:12px auto;font-size:15px;">Any one of these, shipped, changes how the next year of your working life goes. The machine will help you build all of them. The only thing it can't pick is the order — and order is judgment.</p>
+  <div style="margin:24px auto;background:var(--pink);color:var(--navy);border-radius:18px;padding:22px 30px;max-width:470px;" class="sans">
+    <div style="font-weight:800;font-size:19px;">Want me to pick your path, order your moves, and write the Blueprint?</div>
+    <div style="font-size:13px;margin-top:8px;">That's the IIWY Session. One hour. One written plan, addressed to you alone. <a href="https://pennywrenn.media/meet" style="color:var(--navy);font-weight:800;text-decoration:underline;">Book it →</a></div>
+  </div>
+  <p class="sans" style="font-size:12px;color:#8d84c0;">penny WRENN media · made with obedience, timers, and a machine that never needed lunch</p>
+  <div class="strip"><span><b>SOURCES:</b> GDPVAL (OPENAI, VIA HUGGING FACE) · GRANOVETTER + LINKEDIN/MIT ON WEAK TIES · BABCOCK ON ASKING · HEWLETT ON SPONSORSHIP · GODIN ON SHIPPING</span></div>
+</div>
+
+</div><!-- /#gated-content -->
+
+</body>
+</html>

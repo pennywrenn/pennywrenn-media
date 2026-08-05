@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>101 Things I'd Do If I Were You — Penny Wrenn</title>
+<style>
+  :root{
+    --pink:#ff4fc1; --navy:#16065a; --teal:#2a9bc4; --white:#ffffff;
+    --red:#e8342a; --orange:#f5a04c; --green:#6cc24a; --aqua:#59d6d6; --tan:#c8a06e; --gray:#9a9a9a;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  body{background:var(--pink); color:var(--navy); font-family:'Avenir Next','Futura','Century Gothic',Helvetica,sans-serif; line-height:1.55;}
+  .wrap{max-width:900px; margin:0 auto; padding:26px;}
+  .dots{display:flex; gap:6px; margin-bottom:8px;}
+  .dot{width:18px; height:18px; border-radius:50%;}
+  header{padding:26px 0 18px;}
+  .masthead{display:flex; align-items:baseline; gap:10px; flex-wrap:wrap;}
+  .script{font-family:'Snell Roundhand','Brush Script MT',cursive; font-size:34px; color:var(--white);}
+  .block{font-weight:800; font-size:34px; letter-spacing:.08em; color:var(--navy);}
+  .media{font-size:12px; letter-spacing:.3em; color:var(--white);}
+  h1{font-size:clamp(36px,6.5vw,62px); line-height:1.0; color:var(--white); margin:22px 0 8px; font-weight:800; text-transform:uppercase;}
+  h1 span{color:var(--navy);}
+  .story{background:var(--navy); color:var(--white); padding:30px; border-radius:22px; margin:22px 0; font-size:16.5px;}
+  .story p{margin-bottom:12px;}
+  .story .lead{font-size:21px; font-weight:700;}
+  .story .accent{color:var(--pink); font-weight:700;}
+  .whyme{background:var(--white); padding:26px 30px; border-radius:22px; margin:18px 0; font-size:15px;}
+  .whyme h3{color:var(--pink); text-transform:uppercase; letter-spacing:.15em; font-size:13px; margin-bottom:8px;}
+  .step{display:none; padding:26px 0;}
+  .step.active{display:block;}
+  h2{font-size:26px; color:var(--white); margin-bottom:6px;}
+  .sub{color:var(--navy); margin-bottom:20px; font-weight:600;}
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:12px;}
+  .card{background:var(--white); border-radius:18px; padding:18px; cursor:pointer; border:4px solid transparent; transition:all .12s;}
+  .card:hover{border-color:var(--navy); transform:translateY(-2px);}
+  .card h3{font-size:19px; color:var(--navy);}
+  .card p{font-size:12.5px; margin-top:6px; color:#555;}
+  .btn{display:inline-block; font-weight:800; font-size:15px; background:var(--navy); color:var(--white); padding:14px 28px; border-radius:999px; text-decoration:none; border:none; cursor:pointer;}
+  .btn.pink{background:var(--pink); color:var(--white);}
+  .btn.white{background:var(--white); color:var(--navy);}
+  .resulthead{background:var(--navy); color:var(--white); padding:24px 28px; border-radius:22px; margin-bottom:16px;}
+  ol.paths{list-style:none; background:var(--white); border-radius:18px; padding:10px 22px; margin:14px 0;}
+  ol.paths li{padding:12px 4px; border-bottom:2px dotted #eee; font-size:16px; counter-increment:p;}
+  ol.paths li:last-child{border-bottom:none;}
+  ol.paths li::before{content:"● "; color:var(--pink);}
+  ol.paths li.locked{color:#999;}
+  ol.paths li.locked::before{content:"○ "; color:#ccc;}
+  .freespec{background:var(--white); border-radius:18px; border-left:12px solid var(--teal); padding:20px 22px; margin:16px 0; font-size:14.5px;}
+  .gate{background:var(--teal); color:var(--white); border-radius:22px; padding:24px 26px; margin:16px 0;}
+  .gate input{padding:13px 16px; border:none; border-radius:999px; width:min(320px,100%); font-size:15px; margin:8px 8px 8px 0;}
+  .offers{display:grid; grid-template-columns:1fr 1fr; gap:14px; margin-top:20px;}
+  .offer{background:var(--white); border-radius:22px; padding:22px;}
+  .offer .price{font-size:36px; font-weight:800; color:var(--pink);}
+  .offer p{font-size:13px; margin:8px 0 14px;}
+  footer{padding:26px 0 46px; font-size:12px; color:var(--white);}
+  footer a{color:var(--navy); font-weight:700;}
+  .crumbs{font-size:11px; letter-spacing:.18em; text-transform:uppercase; color:var(--white); margin-bottom:10px; font-weight:700;}
+  @media(max-width:620px){.offers{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <div class="dots">
+    <span class="dot" style="background:var(--teal)"></span><span class="dot" style="background:var(--tan)"></span><span class="dot" style="background:var(--red)"></span><span class="dot" style="background:var(--aqua)"></span><span class="dot" style="background:var(--white)"></span><span class="dot" style="background:var(--orange)"></span><span class="dot" style="background:var(--green)"></span><span class="dot" style="background:var(--gray)"></span>
+  </div>
+  <div class="masthead"><span class="script">penny</span><span class="block">WRENN</span><span class="media">M E D I A</span></div>
+  <h1>101 Things I'd Do<br><span>If I Were You</span></h1>
+</header>
+
+<!-- THE STORY (opens the page — the judgment behind the recommendation) -->
+<div class="story">
+  <p class="lead">I used to manipulate search results for a living. White hat — but that's not the point.</p>
+  <p>The point is what the job taught me: nothing on the internet is about good or bad, deserving or undeserving. It's about <span class="accent">how things are packaged</span> — and for twenty years, packaging took a team you couldn't afford and hours you didn't have.</p>
+  <p>Then the machine showed up. I've watched it collapse the distance between knowing better and doing better — in my own work, on a public livestream, with receipts. The raise case that never got written. The business that never got named. The pivot that never got tested. <span class="accent">The bottleneck was never your judgment. It was throughput. That's over.</span></p>
+  <p>So here's my judgment, offered the way an editor offers it: below are two questions. Answer them and I'll show you the ten things I'd do if I were you — starting with one, free, in full.</p>
+</div>
+
+<!-- WHY ME -->
+<div class="whyme">
+  <h3>Why me</h3>
+  <p><b>Penny Wrenn</b> — magazine editor (the real kind), search-marketing insider, and the person your friends already ask before they hit send. I've spent 20+ years being paid for judgment about how things land: in print, in search results, in rooms. Now I do it in public — livestreamed, timed, and documented — using AI as staff, not oracle. Everything on this page was built that way, this week. That's the proof, and you're standing in it.</p>
+</div>
+
+<!-- STEP 1 -->
+<section class="step active" id="s1">
+  <div class="crumbs">Question 1 of 2</div>
+  <h2>Forget your job title. What do you actually do?</h2>
+  <p class="sub">Pick the verb that pays you.</p>
+  <div class="grid">
+    <div class="card" onclick="pick('You manage')"><h3>You manage</h3><p>People, operations, projects — you keep the thing running</p></div>
+    <div class="card" onclick="pick('You sell')"><h3>You sell</h3><p>Clients, deals, relationships — revenue walks in with you</p></div>
+    <div class="card" onclick="pick('You count')"><h3>You count</h3><p>Money, books, rules — the truth lives in your spreadsheet</p></div>
+    <div class="card" onclick="pick('You care')"><h3>You care</h3><p>Patients, clients, communities — the work that holds people up</p></div>
+    <div class="card" onclick="pick('You make & move')"><h3>You make &amp; move</h3><p>Product, plant, logistics — real things, on time</p></div>
+    <div class="card" onclick="pick('You tell')"><h3>You tell</h3><p>Words, media, story — you put the pieces together</p></div>
+    <div class="card" onclick="pick('You build & investigate')"><h3>You build &amp; investigate</h3><p>Systems and cases — find out, then make it work</p></div>
+  </div>
+</section>
+
+<!-- STEP 2 -->
+<section class="step" id="s2">
+  <div class="crumbs">Question 2 of 2 · <span id="chosen1"></span></div>
+  <h2>Now — what's the itch?</h2>
+  <p class="sub">Be honest. Nobody's watching. (I am. Kindly.)</p>
+  <div class="grid">
+    <div class="card" onclick="itch('Leverage')"><h3>Leverage</h3><p>I mostly like my work. I want it to pay more, cost me less, and count for something bigger.</p></div>
+    <div class="card" onclick="itch('Pivot')"><h3>Pivot</h3><p>I'm circling something else — out, up, or sideways, before the decade decides for me.</p></div>
+  </div>
+</section>
+
+<!-- STEP 3 -->
+<section class="step" id="s3">
+  <div class="crumbs">Your results</div>
+  <div class="resulthead">
+    <h2 id="resultTitle" style="color:var(--white)">You manage × Leverage</h2>
+    <p style="font-size:13.5px; margin-top:6px;">Five deliverables I'd ship if I were you — the ones nobody asked you for, anchored to the work AI is actually measured against.</p>
+  </div>
+  <ol class="paths">
+    <li><b>The Rate Memo</b> — the raise case your boss can forward upward &nbsp;<b style="color:var(--teal)">FREE — full spec below</b></li>
+    <li class="locked">The Succession Doc — promotable beats indispensable</li>
+    <li class="locked">The Headcount Case — your overwork, translated into leadership math</li>
+    <li class="locked">The Unsolicited One-Pager — the fix nobody assigned you</li>
+    <li class="locked">The Translate-Up Brief — your team's work, in your boss's boss's language</li>
+  </ol>
+  <div class="freespec">
+    <b style="color:var(--teal); text-transform:uppercase; letter-spacing:.12em; font-size:11px;">Deliverable 01 · Free · You manage</b>
+    <h3 style="margin:6px 0;">The Rate Memo</h3>
+    <p><b>Ship:</b> a one-page memo pricing your role against current market ranges, written so your boss can forward it without editing.<br>
+    <b>Why it works:</b> the ask is the highest-leverage document most people never write.<br>
+    <b>Build:</b> give AI your role, region, tenure, last review, two wins with numbers. Draft ugly, cut to one page, label anything inferred.<br>
+    <b>Ship move:</b> the week after a visible win. Subject: "For your next comp conversation."</p>
+  </div>
+  <div class="gate">
+    <h3 style="margin-bottom:4px;">Get the whole magazine — free.</h3>
+    <p style="font-size:13px; margin-bottom:8px;">101 Things I'd Do If I Were You: a full 25-page issue, made with AI on Day 3 of a free 5-Day Activation Plan (you get that too).</p>
+    <input type="email" id="em" placeholder="your@email.com">
+    <button class="btn white" onclick="sendMag()">Send me the issue</button>
+    <p style="font-size:10.5px; margin-top:8px; opacity:.85;">Mockup wiring: opens an email to Penny with your answers attached. Production: form service + auto-delivery (see Rules Spec).</p>
+  </div>
+  <div class="offers">
+    <div class="offer">
+      <div class="price">$5</div>
+      <p><b>The Adventure (IIWY CYOA):</b> all five of your deliverable specs plus every other path — anchored to the 220 real-world tasks AI was measured against.</p>
+      <a class="btn pink" href="#" onclick="alert('Production: Stripe Payment Link / Gumroad — see Rules Spec'); return false;">Unlock my 5 →</a>
+    </div>
+    <div class="offer">
+      <div class="price">$50</div>
+      <p><b>The Session + Blueprint:</b> "You've seen what I'd ship if I were you. Book the session and I'll pick your path, order your moves, and write the Blueprint."</p>
+      <a class="btn" href="https://calendly.com/pennywrenn/the-if-i-were-you-session?month=2026-08" target="_blank">Book with Penny →</a>
+    </div>
+  </div>
+  <p style="margin-top:18px;"><a href="#" onclick="reset()" style="color:var(--white); font-weight:700;">↺ start over</a></p>
+</section>
+
+<footer>
+  FREE: this picker + the magazine + the 5-Day Plan · $5: the Adventure · $50: Session + Blueprint · $500: <a href="#">Publications &amp; Deployments — apply</a>
+  <br><br>
+  <a href="mailto:pennywrenn@gmail.com" style="color:var(--white);">✉ contact Penny</a> &nbsp;·&nbsp; WORKING MOCKUP v2 · Round 2 · booking + contact links are LIVE
+</footer>
+
+</div>
+<script>
+var f='',i='';
+function show(id){document.querySelectorAll('.step').forEach(function(s){s.classList.remove('active')});document.getElementById(id).classList.add('active');}
+function pick(v){f=v;document.getElementById('chosen1').textContent=v;show('s2');window.scrollTo({top:document.getElementById('s2').offsetTop-40,behavior:'smooth'});}
+function itch(v){i=v;document.getElementById('resultTitle').textContent=f+' × '+v;show('s3');window.scrollTo({top:document.getElementById('s3').offsetTop-40,behavior:'smooth'});}
+function reset(){show('s1');return false;}
+function sendMag(){
+  var em=document.getElementById('em').value||'(no email entered)';
+  var sub=encodeURIComponent('Send me the 101 magazine');
+  var body=encodeURIComponent('Email: '+em+'\nFunction: '+f+'\nItch: '+i+'\n\n(Sent from the picker mockup — production replaces this with a form service + auto-delivery.)');
+  window.location.href='mailto:pennywrenn@gmail.com?subject='+sub+'&body='+body;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The If I Were You Session — $50 | Penny Wrenn</title>
+<meta name="description" content="One hour about your one live opportunity. You leave with the Blueprint: what I would do if I were you — in order, in writing. $50.">
+<style>
+  :root{
+    --pink:#ff4fc1;
+    --navy:#16065a;
+    --teal:#2a9bc4;
+    --aqua:#59d6d6;
+    --paper:#fdfbf7;
+    --ink:#16065a;
+    --muted:#5b5480;
+    --rule:rgba(22,6,90,.14);
+    --maxw:1080px;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:18px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    background:var(--navy);
+    color:var(--paper);
+    padding:88px 0 76px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::after{
+    content:"";
+    position:absolute;
+    right:-160px;top:-160px;
+    width:520px;height:520px;
+    border-radius:50%;
+    background:radial-gradient(circle at 30% 30%,var(--pink),transparent 62%);
+    opacity:.5;
+    pointer-events:none;
+  }
+  .hero .wrap{position:relative;z-index:1}
+
+  .eyebrow{
+    font-size:13px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--aqua);
+    font-weight:700;
+    margin-bottom:22px;
+  }
+
+  h1{
+    font-size:clamp(42px,7vw,78px);
+    line-height:1.02;
+    letter-spacing:-.025em;
+    font-weight:800;
+    max-width:16ch;
+  }
+  h1 em{font-style:normal;color:var(--pink)}
+
+  .deck{
+    margin-top:26px;
+    font-size:clamp(19px,2.4vw,25px);
+    line-height:1.4;
+    max-width:46ch;
+    color:rgba(253,251,247,.9);
+  }
+
+  .price-strip{
+    margin-top:38px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px 28px;
+    align-items:center;
+    font-size:15px;
+    color:rgba(253,251,247,.72);
+  }
+  .price-tag{
+    background:var(--pink);
+    color:#fff;
+    font-weight:800;
+    font-size:17px;
+    padding:9px 18px;
+    border-radius:100px;
+    letter-spacing:.01em;
+  }
+
+  /* ---------- BUTTONS ---------- */
+  .cta-row{
+    margin-top:40px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:14px;
+  }
+  .btn{
+    display:inline-block;
+    padding:17px 34px;
+    border-radius:100px;
+    font-weight:800;
+    font-size:17px;
+    text-decoration:none;
+    letter-spacing:.01em;
+    transition:transform .15s ease, box-shadow .15s ease, background .15s ease;
+    border:2px solid transparent;
+  }
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{
+    background:var(--pink);
+    color:#fff;
+    box-shadow:0 8px 26px rgba(255,79,193,.34);
+  }
+  .btn-primary:hover{box-shadow:0 12px 32px rgba(255,79,193,.44)}
+  .btn-ghost{
+    background:transparent;
+    color:var(--paper);
+    border-color:rgba(253,251,247,.42);
+  }
+  .btn-ghost:hover{border-color:var(--aqua);color:var(--aqua)}
+
+  .btn-note{
+    font-size:14px;
+    color:rgba(253,251,247,.6);
+    margin-top:16px;
+    max-width:52ch;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{padding:82px 0}
+  .section-label{
+    font-size:13px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--teal);
+    margin-bottom:18px;
+  }
+  h2{
+    font-size:clamp(30px,4.4vw,46px);
+    line-height:1.08;
+    letter-spacing:-.02em;
+    font-weight:800;
+    max-width:20ch;
+  }
+  .lede{
+    margin-top:20px;
+    font-size:20px;
+    max-width:56ch;
+    color:var(--muted);
+  }
+
+  /* ---------- WHAT IT IS ---------- */
+  .what{border-bottom:1px solid var(--rule)}
+  .beats{
+    margin-top:52px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:2px;
+    background:var(--rule);
+    border:1px solid var(--rule);
+    border-radius:14px;
+    overflow:hidden;
+  }
+  .beat{background:var(--paper);padding:32px 28px}
+  .beat-num{
+    font-size:13px;
+    font-weight:800;
+    color:var(--pink);
+    letter-spacing:.16em;
+    margin-bottom:12px;
+  }
+  .beat h3{font-size:20px;font-weight:800;margin-bottom:9px;letter-spacing:-.01em}
+  .beat p{font-size:16px;color:var(--muted);line-height:1.5}
+
+  /* ---------- TRACKS ---------- */
+  .tracks{background:#fff;border-bottom:1px solid var(--rule)}
+  .track-grid{
+    margin-top:52px;
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+  }
+  .track{
+    border:1px solid var(--rule);
+    border-radius:16px;
+    padding:32px 30px;
+    background:var(--paper);
+    position:relative;
+    transition:border-color .18s ease, transform .18s ease;
+  }
+  .track:hover{border-color:var(--pink);transform:translateY(-3px)}
+  .track:first-child{
+    grid-column:1 / -1;
+    background:linear-gradient(120deg,rgba(255,79,193,.07),rgba(89,214,214,.09));
+    border-color:rgba(255,79,193,.36);
+  }
+  .track-flag{
+    position:absolute;
+    top:-11px;left:30px;
+    background:var(--pink);
+    color:#fff;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    padding:5px 13px;
+    border-radius:100px;
+  }
+  .track h3{
+    font-size:24px;
+    font-weight:800;
+    letter-spacing:-.015em;
+    margin-bottom:12px;
+  }
+  .track p{color:var(--muted);font-size:16.5px;line-height:1.5}
+  .track .leave{
+    margin-top:18px;
+    padding-top:16px;
+    border-top:1px dashed var(--rule);
+    font-size:15px;
+    color:var(--ink);
+  }
+  .track .leave strong{color:var(--teal);font-weight:800}
+
+  /* ---------- HOW ---------- */
+  .how{border-bottom:1px solid var(--rule)}
+  .steps{margin-top:46px}
+  .step{
+    display:flex;
+    gap:26px;
+    padding:26px 0;
+    border-top:1px solid var(--rule);
+    align-items:flex-start;
+  }
+  .step:last-child{border-bottom:1px solid var(--rule)}
+  .step-n{
+    flex:0 0 auto;
+    width:42px;height:42px;
+    border-radius:50%;
+    background:var(--navy);
+    color:var(--aqua);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:17px;
+  }
+  .step-body h3{font-size:20px;font-weight:800;margin-bottom:6px}
+  .step-body p{color:var(--muted);font-size:16.5px;max-width:60ch}
+
+  /* ---------- BOOK ---------- */
+  .book{
+    background:var(--navy);
+    color:var(--paper);
+    text-align:center;
+  }
+  .book h2{margin:0 auto;max-width:18ch}
+  .book .lede{margin:20px auto 0;color:rgba(253,251,247,.82)}
+  .book .cta-row{justify-content:center}
+  .pay-note{
+    margin:34px auto 0;
+    max-width:50ch;
+    font-size:15px;
+    color:rgba(253,251,247,.62);
+    line-height:1.6;
+  }
+  .pay-note strong{color:var(--aqua);font-weight:700}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    padding:42px 0;
+    font-size:14.5px;
+    color:var(--muted);
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 26px;
+    justify-content:center;
+    align-items:center;
+  }
+  footer a{color:var(--teal);text-decoration:none;font-weight:700}
+  footer a:hover{text-decoration:underline}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media(max-width:860px){
+    .beats{grid-template-columns:1fr}
+    .track-grid{grid-template-columns:1fr}
+    section{padding:60px 0}
+    .hero{padding:64px 0 56px}
+  }
+  @media(max-width:520px){
+    body{font-size:17px}
+    .wrap{padding:0 20px}
+    .btn{width:100%;text-align:center}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">The If I Were You Session</p>
+    <h1>What I would do <em>if I were you.</em></h1>
+    <p class="deck">One hour about your one live opportunity. You leave with the Blueprint — in order, in writing.</p>
+
+    <div class="price-strip">
+      <span class="price-tag">$50</span>
+      <span>60 minutes by phone or Google Meet</span>
+      <span>Deliverable in 72–96 hours</span>
+    </div>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://calendly.com/pennywrenn/the-if-i-were-you-session?month=2026-08">Book &amp; pay — $50</a>
+      <a class="btn btn-ghost" href="#tracks">See the five tracks</a>
+    </div>
+    <p class="btn-note">Payment is collected at booking. Prefer Venmo? Details below.</p>
+  </div>
+</header>
+
+<!-- ============ WHAT THIS IS ============ -->
+<section class="what">
+  <div class="wrap">
+    <p class="section-label">What this is</p>
+    <h2>Not a consultation. An activation.</h2>
+    <p class="lede">Most advice calls end with you holding a list of things you <em>could</em> do. This one ends with the thing you're going to do next, built and written down, in the order you'll do it.</p>
+
+    <div class="beats">
+      <div class="beat">
+        <p class="beat-num">01</p>
+        <h3>Bring one opportunity</h3>
+        <p>Not your whole business. One live opportunity you can't stop thinking about — the thing you keep almost starting.</p>
+      </div>
+      <div class="beat">
+        <p class="beat-num">02</p>
+        <h3>We spend the hour on it</h3>
+        <p>I ask a lot of questions. You talk more than I do. Somewhere in there, the real version of what you're building shows up.</p>
+      </div>
+      <div class="beat">
+        <p class="beat-num">03</p>
+        <h3>You get it in writing</h3>
+        <p>The Blueprint, plus whichever deliverable your track calls for. Yours to keep, reuse, and run without me.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRACKS ============ -->
+<section class="tracks" id="tracks">
+  <div class="wrap">
+    <p class="section-label">Pick your track</p>
+    <h2>Five ways to spend the hour.</h2>
+    <p class="lede">Same price, same 60 minutes, same turnaround. You choose when you book — and if you pick wrong, we'll fix it in the first five minutes.</p>
+
+    <div class="track-grid">
+
+      <div class="track">
+        <span class="track-flag">Most booked</span>
+        <h3>The Digital Twin Interview</h3>
+        <p>A structured hour that gets what's in your head onto the page — how you talk, what you know, the words you'd never use. It becomes the seed material for an AI that writes like you instead of like everyone.</p>
+        <p class="leave"><strong>You leave with:</strong> your voice-match prompt, ready to paste into Claude or ChatGPT, plus the raw interview transcript as source material.</p>
+      </div>
+
+      <div class="track">
+        <h3>Rant → Post</h3>
+        <p>You talk for an hour about the thing you're fired up about. No outline, no notes, no performing. I take it away and hand you back the piece that was hiding in it.</p>
+        <p class="leave"><strong>You leave with:</strong> one finished essay or long-form post, publish-ready, in your voice.</p>
+      </div>
+
+      <div class="track">
+        <h3>Course Outline Builder</h3>
+        <p>You know a thing well enough to teach it. The hour pulls the shape out of what's in your head — modules, order, what belongs and what doesn't.</p>
+        <p class="leave"><strong>You leave with:</strong> a full mini-course or workshop outline you could teach from next week.</p>
+      </div>
+
+      <div class="track">
+        <h3>Everybody Needs To Pitch Kit</h3>
+        <p>Whatever you're asking for — the client, the grant, the panel, the raise. We spend the hour finding the version of it that sounds like a person and not a proposal.</p>
+        <p class="leave"><strong>You leave with:</strong> your pitch in three lengths — one line, one email, one full page — plus a prompt that rebuilds it for the next opportunity.</p>
+      </div>
+
+      <div class="track">
+        <h3>Ask Me Anything Bot</h3>
+        <p>An hour of me asking you the questions your clients keep asking. Your expertise comes out as answers instead of sitting in your head as instinct.</p>
+        <p class="leave"><strong>You leave with:</strong> a Q&amp;A document and prompt that turns any AI tool into a bot that answers like you.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ HOW IT WORKS ============ -->
+<section class="how">
+  <div class="wrap">
+    <p class="section-label">How it works</p>
+    <h2>Four steps. No discovery call.</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-n">1</div>
+        <div class="step-body">
+          <h3>Book and pay</h3>
+          <p>Pick a time, pay the $50, done. There's no intro call before the call — the session is the session.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">2</div>
+        <div class="step-body">
+          <h3>Tell me your track and your one thing</h3>
+          <p>Two questions at booking: which of the five you want, and the one thing you're stuck on. That's all the prep I need.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">3</div>
+        <div class="step-body">
+          <h3>We spend an hour together</h3>
+          <p>By phone or Google Meet, your call. Recorded, so neither of us is scrambling to take notes — and you get the recording either way.</p>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-n">4</div>
+        <div class="step-body">
+          <h3>Your deliverable lands in 72–96 hours</h3>
+          <p>The Blueprint plus whatever your track produces. If it misses, tell me and I'll take one more pass — no charge.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============ BOOK ============ -->
+<section class="book">
+  <div class="wrap">
+    <p class="section-label" style="color:var(--aqua)">Book it</p>
+    <h2>Bring the one thing.</h2>
+    <p class="lede">$50, one hour, and a plan you can act on Monday.</p>
+
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://calendly.com/pennywrenn/the-if-i-were-you-session?month=2026-08">Book &amp; pay on Calendly</a>
+      <a class="btn btn-ghost" href="https://account.venmo.com/u/pennywrenn">Pay $50 via Venmo</a>
+    </div>
+
+    <p class="pay-note">
+      <strong>Booking on Calendly?</strong> Payment is collected right there — you're confirmed the moment you book.<br><br>
+      <strong>Paying by Venmo?</strong> Send $50 first, note your track and preferred day, and I'll email you a booking link within one business day.
+    </p>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>© 2026 Penny Wrenn</span>
+</footer>
+
+</body>
+</html>
